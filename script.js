@@ -61,6 +61,10 @@ window.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
       e.preventDefault();
       console.log('Menu clicado:', label);
+      let gameSound = new Audio(`assets/sounds/menu.mp3`);
+      gameSound.currentTime = 0;
+      gameSound.volume = 0.3;
+      gameSound.play().catch(err => console.warn('Som bloqueado:', err));
 
       switch (label) {
         case 'Play':
