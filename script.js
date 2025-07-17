@@ -65,6 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
       gameSound.currentTime = 0;
       gameSound.volume = 0.3;
       gameSound.play().catch(err => console.warn('Som bloqueado:', err));
+      window.gameSound = gameSound;
 
       switch (label) {
         case 'Play':
@@ -79,6 +80,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  
 
   
 
