@@ -1,6 +1,7 @@
 (() => {
   const target = document.getElementById('characters-list');
   const confirmButton = document.getElementById('confirm-character');
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   let selectedCharacterId = null;
 
@@ -29,19 +30,38 @@
           <span class="character-name">${c.name}</span>
         `;
 
-        card.addEventListener('click', () => {
-          const alreadySelected = card.classList.contains('selected');
-          document.querySelectorAll('.character-card').forEach(el => el.classList.remove('selected'));
-          selectedCharacterId = null;
+        // card.addEventListener('click', () => {
+        //   const alreadySelected = card.classList.contains('selected');
+        //   document.querySelectorAll('.character-card').forEach(el => el.classList.remove('selected'));
+        //   selectedCharacterId = null;
 
-          if (!alreadySelected) {
-            card.classList.add('selected');
-            selectedCharacterId = c.id;
-            confirmButton.classList.remove('d-none');
-          } else {
-            confirmButton.classList.add('d-none');
+        //   if (!alreadySelected) {
+        //     card.classList.add('selected');
+        //     selectedCharacterId = c.id;
+        //     confirmButton.classList.remove('d-none');
+        //   } else {
+        //     confirmButton.classList.add('d-none');
+        //   }
+        // });
+        card.addEventListener('click', () => {
+        const alreadySelected = card.classList.contains('selected');
+        document.querySelectorAll('.character-card').forEach(el => el.classList.remove('selected'));
+        selectedCharacterId = null;
+
+        if (!alreadySelected) {
+          card.classList.add('selected');
+          selectedCharacterId = c.id;
+          confirmButton.classList.remove('d-none');
+
+          // 👉 Se for mobile, já aciona o botão de confirmar
+          if (isMobile) {
+            confirmButton.click();
           }
-        });
+        } else {
+          confirmButton.classList.add('d-none');
+        }
+      });
+
 
         col.appendChild(card);
         target.appendChild(col);
