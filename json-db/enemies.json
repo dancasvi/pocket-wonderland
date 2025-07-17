@@ -7,11 +7,11 @@
         "attackFile": "atk-caterpie.gif",
         "attackSoundFile": "atk-caterpie.mp3",
         "attackColor": "#00FF00",
-        "attackTypes": ["walk"],
-        "spawnTime": 5,
+        "attackTypes": [{"style":"walk", "cd":0}],
+        "spawnTime": 3,
         "life": 1,
         "exp": 10,
-        "speed": 5
+        "speed": 7
     },
     {
         "idEnemy": 2,
@@ -21,11 +21,11 @@
         "attackFile": "atk-weedle.gif",
         "attackSoundFile": "atk-weedle.mp3",
         "attackColor": "#F7B874",
-        "attackTypes": ["walk"],
-        "spawnTime": 5,
+        "attackTypes": [{"style":"walk", "cd":0}],
+        "spawnTime": 3,
         "life": 1,
         "exp": 10,
-        "speed": 5
+        "speed": 7
     },
     {
         "idEnemy": 3,
@@ -35,11 +35,11 @@
         "attackFile": "atk-pidgey.gif",
         "attackSoundFile": "atk-pidgey.mp3",
         "attackColor": "#F7B874",
-        "attackTypes": ["walk", "shoot"],
-        "spawnTime": 5,
+        "attackTypes": [{"style":"walk", "cd":0}, {"style":"shoot", "cd":3}],
+        "spawnTime": 3,
         "life": 1,
         "exp": 10,
-        "speed": 7
+        "speed": 9
     },
     {
         "idEnemy": 4,
@@ -49,10 +49,10 @@
         "attackFile": "atk-spearow.gif",
         "attackSoundFile": "atk-spearow.mp3",
         "attackColor": "#F7B874",
-        "attackTypes": ["jump"],
-        "spawnTime": 5,
+        "attackTypes": [{"style":"walk", "cd":0}, {"style":"jump", "cd":1}],
+        "spawnTime": 3,
         "life": 1,
         "exp": 10,
-        "speed": 7
+        "speed": 9
     }
 ]
