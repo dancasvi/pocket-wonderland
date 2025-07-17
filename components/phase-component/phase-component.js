@@ -56,60 +56,44 @@
     });
 
     function createHUD() {
-  const hud = document.createElement('div');
-  hud.id = 'hud';
-  hud.className = 'hud-card';
-  hud.innerHTML = `
-    <div class="hud-top">
-      <img id="hud-icon" class="hud-icon" src="" alt="icon" />
-      <span id="hud-name" class="hud-name">Nome</span>
-      <span id="hud-level" class="hud-level">Lv. 1</span>
-    </div>
-    <div class="hud-life" id="hud-life">
-      <span class="life-heart">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="red" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-                  2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
-                  C13.09 3.81 14.76 3 16.5 3
-                  19.58 3 22 5.42 22 8.5
-                  c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
-      </span>
-      <span class="life-heart">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="red" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-                  2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
-                  C13.09 3.81 14.76 3 16.5 3
-                  19.58 3 22 5.42 22 8.5
-                  c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
-      </span>
-      <span class="life-heart">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="red" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-                  2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
-                  C13.09 3.81 14.76 3 16.5 3
-                  19.58 3 22 5.42 22 8.5
-                  c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
-      </span>
-    </div>
+      const hud = document.createElement('div');
+      hud.id = 'hud';
+      hud.className = 'hud-card';
+      hud.innerHTML = `
+        <div class="hud-top">
+          <img id="hud-icon" class="hud-icon" src="" alt="icon" />
+          <span id="hud-name" class="hud-name">Nome</span>
+          <span id="hud-level" class="hud-level">Lv. 1</span>
+        </div>
+        <div class="hud-life" id="hud-life">
+          ${[0, 1, 2].map(() => `
+            <span class="life-heart">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="red" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                        2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                        C13.09 3.81 14.76 3 16.5 3
+                        19.58 3 22 5.42 22 8.5
+                        c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </span>
+          `).join('')}
+        </div>
 
-    <div class="hud-info">
-      <div>Fase: <span id="hud-phase">1</span></div>
-      <div>Pontos: <span id="hud-points">0</span></div>
-      <div>
-        <img src="assets/stuff/pokeball.png" class="pokeball-icon" alt="pokeball" />
-        <span id="hud-pokeballs">0</span>
-      </div>
-    </div>
-    <div class="hud-xp-bar-wrapper">
-      <div class="hud-xp-bar" id="hud-xp-bar"></div>
-    </div>
-  `;
+        <div class="hud-info">
+          <div>Fase: <span id="hud-phase">1</span></div>
+          <div>Pontos: <span id="hud-points">0</span></div>
+          <div>
+            <img src="assets/stuff/pokeball.png" class="pokeball-icon" alt="pokeball" />
+            <span id="hud-pokeballs">0</span>
+          </div>
+        </div>
+        <div class="hud-xp-bar-wrapper">
+          <div class="hud-xp-bar" id="hud-xp-bar"></div>
+        </div>
+      `;
 
-  document.querySelector('.phase-wrapper').appendChild(hud);
-}
+      document.querySelector('.phase-wrapper').appendChild(hud);
+    }
 
   function updateHUD() {
     const selectedRaw = localStorage.getItem('selectedCharacter');
@@ -138,18 +122,24 @@
   let pointInterval = null;
 
   function startPointCounter() {
-    pointInterval = setInterval(() => {
-      if (!isPaused) {
-        points++;
-        const el = document.getElementById('hud-points');
-        if (el) el.textContent = points;
+    if (window.pointInterval) clearInterval(window.pointInterval); // <--- limpa anterior
+
+    window.pointInterval = setInterval(() => {
+      if (!window.isPaused) {
+        window.points++;
+        updatePointsHUD();
       }
     }, 1000);
   }
 
+
   function stopPointCounter() {
-    clearInterval(pointInterval);
+    clearInterval(window.pointInterval);
+    window.pointInterval = null;
   }
+
+  
+
 
 
   let xp = 0;
@@ -253,6 +243,14 @@ function startEnemySpawn(enemiesIdList) {
     });
 }
 
+function updatePointsHUD() {
+  const el = document.getElementById('hud-points');
+  if (el) el.textContent = window.points || 0;
+}
+
+
+
+
 
 
 
@@ -289,4 +287,8 @@ function startEnemySpawn(enemiesIdList) {
 
     // Torna acessível no escopo global
     window.addXP = addXP;
+    window.pointInterval = pointInterval;
+    window.points = points;
+    window.updatePointsHUD = updatePointsHUD;
+    window.stopPointCounter = stopPointCounter;
 })();

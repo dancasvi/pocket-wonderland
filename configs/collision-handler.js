@@ -1,7 +1,11 @@
+
 (() => {
+  let playerLives = 3;
   const CHECK_INTERVAL = 50; // ms
   const DAMAGE_PER_HIT = 1;
   let enemyDataMap = {};
+  const hurtSound = new Audio('assets/sounds/hurt.mp3');
+  const loseSound = new Audio('assets/sounds/lose.mp3');
 
   // Pré-carrega enemies.json uma vez
   fetch('json-db/enemies.json')
@@ -22,6 +26,59 @@
   function checkCollisions() {
     const projectiles = document.querySelectorAll('svg');
     const enemies = document.querySelectorAll('.enemy');
+    const player = document.getElementById('player-character');
+
+    // Verifica se foi tocado
+    if (!player || player.dataset.immune === 'true') return;
+    const playerRect = player.getBoundingClientRect();
+
+    enemies.forEach(enemy => {
+      const eRect = enemy.getBoundingClientRect();
+
+      if (isColliding(playerRect, eRect)) {
+        // Ativa imunidade por 3 segundos
+        player.dataset.immune = 'true';
+        
+        hurtSound.volume = 0.3;
+        hurtSound.play().catch(err => console.warn('Som bloqueado:', err));
+
+        // Reduz vida
+        playerLives--;
+        updatePlayerLifeHUD(playerLives); // atualiza visualmente
+
+        if (playerLives <= 0) {
+          showGameOverMessage();
+          window.isPaused = true; // congela jogo
+          if (typeof window.stopPointCounter === 'function') {
+            window.stopPointCounter();
+          }
+
+
+          setTimeout(() => {
+            loadComponent('components/menu-component/menu-component.html');
+          }, 3000);
+          return;
+        }
+
+        // Piscar 3 vezes
+        let blinkCount = 0;
+        const blinkInterval = setInterval(() => {
+          player.style.visibility = player.style.visibility === 'hidden' ? 'visible' : 'hidden';
+          blinkCount++;
+
+          if (blinkCount >= 6) {
+            clearInterval(blinkInterval);
+            player.style.visibility = 'visible';
+          }
+        }, 250);
+
+        // Remove imunidade após 3 segundos
+        setTimeout(() => {
+          player.dataset.immune = 'false';
+        }, 3000);
+      }
+    });
+    // FIM TOQUE
 
     projectiles.forEach(projectile => {
       const pRect = projectile.getBoundingClientRect();
@@ -46,7 +103,7 @@
             enemy.onload = () => {
                 setTimeout(() => {
                     enemy.remove();
-                }, 900);
+                }, 500);
             };
 
             enemy.src = faintGif; // Só depois de definir o .onload
@@ -105,5 +162,44 @@
     });
   }
 
+  function showGameOverMessage() {    
+    loseSound.volume = 0.9;
+    loseSound.play().catch(err => console.warn('Som bloqueado:', err));
+
+    const msg = document.createElement('div');
+    msg.textContent = 'Oh no, you fainted!';
+    msg.style.position = 'fixed';
+    msg.style.top = '50%';
+    msg.style.left = '50%';
+    msg.style.transform = 'translate(-50%, -50%)';
+    msg.style.color = 'red';
+    msg.style.fontSize = '32px';
+    msg.style.fontWeight = 'bold';
+    msg.style.zIndex = '9999';
+    msg.style.fontFamily = 'sans-serif';
+    msg.style.textShadow = '1px 1px 4px black';
+    document.body.appendChild(msg);
+
+    // Remove todos os inimigos da tela
+    document.querySelectorAll('.enemy').forEach(enemy => enemy.remove());
+
+    window.points = 0;
+    if (typeof window.updatePointsHUD === 'function') {
+      window.updatePointsHUD();
+    }
+
+    setTimeout(() => {
+      msg.remove();
+    }, 2500);
+    return;
+  }
+
   setInterval(checkCollisions, CHECK_INTERVAL);
+
+  window.updatePlayerLifeHUD = function (livesRemaining) {
+    const hearts = document.querySelectorAll('.hud-life .life-heart svg');
+    hearts.forEach((svg, index) => {
+      svg.style.opacity = index < livesRemaining ? '1' : '0.2';
+    });
+  };
 })();

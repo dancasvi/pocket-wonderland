@@ -28,9 +28,13 @@
   }
 
   // Pulo
+  let jumpSound = new Audio('assets/sounds/jump.mp3');
   if (keysPressed['ArrowUp'] && !isJumping) {
     velocityY = jumpForce;
     isJumping = true;
+
+    jumpSound.volume = 0.3;
+    jumpSound.play().catch(err => console.warn('Som bloqueado:', err));
   }
 
   // Queda forçada
@@ -64,7 +68,7 @@
   player.style.bottom = `${posY}px`;
 
   requestAnimationFrame(updatePosition);
-}
+  }
 
 
   // Teclado
