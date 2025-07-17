@@ -1,0 +1,25 @@
+.menu-wrapper {
+  background-color: #f0f0f0; /* cinza claro */
+}
+
+.menu-box {
+  background-color: white;
+  border-radius: 12px;
+  max-width: 320px;
+  width: 100%;
+}
+
+.menu-btn {
+  background-color: #fff3b0; /* amarelo claro */
+  color: #333;
+  font-size: 1.2rem;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-btn:hover {
+  background-color: #ffe066;
+  transform: scale(1.02);
+}

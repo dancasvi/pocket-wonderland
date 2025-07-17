@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "First Encounter!",
+    "password": "first",
+    "enemiesId": [1, 2, 3, 4],
+    "background-img": "lightblue",
+    "points-to-beat": 20
+  },
+  {
+    "id": 2,
+    "name": "A terror from the skies!",
+    "password": "second",
+    "enemiesId": [3, 4],
+    "background-img": "lightbrown",
+    "points-to-beat": 20
+  }
+]

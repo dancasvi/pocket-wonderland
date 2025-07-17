@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "Pikachu",
+        "img": "pikachu.gif",
+        "turnedTo": "right",
+        "chooseIconExtension": "jpeg",
+        "powerColor": "#FFEF00",
+        "ingameIconExtension": "png",
+        "type": "electric"
+    },
+    {
+        "id": 2,
+        "name": "Blaziken",
+        "img": "blaziken.gif",
+        "turnedTo": "right",
+        "chooseIconExtension": "png",
+        "powerColor": "#FF0000",
+        "ingameIconExtension": "jpg",
+        "type": "fire"
+    },
+    {
+        "id": 3,
+        "name": "Chikorita",
+        "img": "chikorita.gif",
+        "turnedTo": "left",
+        "chooseIconExtension": "jpeg",
+        "powerColor": "#14FF14",
+        "ingameIconExtension": "jpg",
+        "type": "grass"
+    },
+    {
+        "id": 4,
+        "name": "Jolteon",
+        "img": "jolteon.gif",
+        "turnedTo": "left",
+        "chooseIconExtension": "jpg",
+        "powerColor": "#FFEF00",
+        "ingameIconExtension": "jpg",
+        "type": "electric"
+    },
+    {
+        "id": 5,
+        "name": "Lucario",
+        "img": "lucario.gif",
+        "turnedTo": "right",
+        "chooseIconExtension": "png",
+        "powerColor": "#143BFF",
+        "ingameIconExtension": "jpg",
+        "type": "fighting"
+    },
+    {
+        "id": 6,
+        "name": "Rockruff",
+        "img": "rockruff.gif",
+        "turnedTo": "left",
+        "chooseIconExtension": "jpeg",
+        "powerColor": "#FA6A35",
+        "ingameIconExtension": "jpg",
+        "type": "rock"
+    },
+    {
+        "id": 7,
+        "name": "Sylveon",
+        "img": "shiny-sylveon.gif",
+        "turnedTo": "left",
+        "chooseIconExtension": "png",
+        "powerColor": "#FF32EB",
+        "ingameIconExtension": "jpeg",
+        "type": "fairy"
+    }
+]

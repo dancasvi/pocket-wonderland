@@ -1,0 +1,58 @@
+[
+    {
+        "idEnemy": 1,
+        "name": "Caterpie",
+        "cryFile": "cry-caterpie.mp3",
+        "imgFile": "img-caterpie.gif",
+        "attackFile": "atk-caterpie.gif",
+        "attackSoundFile": "atk-caterpie.mp3",
+        "attackColor": "#00FF00",
+        "attackTypes": ["walk"],
+        "spawnTime": 5,
+        "life": 1,
+        "exp": 10,
+        "speed": 5
+    },
+    {
+        "idEnemy": 2,
+        "name": "Weedle",
+        "cryFile": "cry-weedle.mp3",
+        "imgFile": "img-weedle.gif",
+        "attackFile": "atk-weedle.gif",
+        "attackSoundFile": "atk-weedle.mp3",
+        "attackColor": "#F7B874",
+        "attackTypes": ["walk"],
+        "spawnTime": 5,
+        "life": 1,
+        "exp": 10,
+        "speed": 5
+    },
+    {
+        "idEnemy": 3,
+        "name": "Pidgey",
+        "cryFile": "cry-pidgey.mp3",
+        "imgFile": "img-pidgey.gif",
+        "attackFile": "atk-pidgey.gif",
+        "attackSoundFile": "atk-pidgey.mp3",
+        "attackColor": "#F7B874",
+        "attackTypes": ["walk", "shoot"],
+        "spawnTime": 5,
+        "life": 1,
+        "exp": 10,
+        "speed": 7
+    },
+    {
+        "idEnemy": 4,
+        "name": "Spearow",
+        "cryFile": "cry-spearow.mp3",
+        "imgFile": "img-spearow.gif",
+        "attackFile": "atk-spearow.gif",
+        "attackSoundFile": "atk-spearow.mp3",
+        "attackColor": "#F7B874",
+        "attackTypes": ["jump"],
+        "spawnTime": 5,
+        "life": 1,
+        "exp": 10,
+        "speed": 7
+    }
+]

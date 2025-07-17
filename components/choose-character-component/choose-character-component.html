@@ -1,0 +1,33 @@
+<div class="choose-character-wrapper container py-5">
+  <div class="mb-3 text-start">
+    <button id="back-to-menu" class="btn btn-outline-secondary">
+      ← Voltar ao Menu
+    </button>
+  </div>
+
+  <h2 class="text-center mb-4">Escolha Seu Personagem</h2>
+  
+  <div class="row" id="characters-list">
+    <!-- personagens serão carregados aqui -->
+  </div>
+
+  <div class="text-center mt-4">
+    <button id="confirm-character" class="btn btn-success px-4 py-2 d-none">Confirmar Escolha</button>
+  </div>
+</div>
+
+<!-- Modal de Confirmação -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm"> <!-- modal-sm para menor tamanho -->
+    <div class="modal-content rounded-4 shadow-sm">
+      <div class="modal-body text-center p-4">
+        <p id="selected-character-info" class="fs-5 fw-semibold mb-4 text-success"></p>
+        <button type="button" id="modal-ok-btn" class="btn btn-success w-100" data-bs-dismiss="modal">
+          OK
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="components/choose-character-component/choose-character-component.css" />

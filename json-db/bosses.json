@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Team Rocket 1",
+    "bosses": [
+      {
+        "id": "koffing",
+        "label": "Koffing",
+        "gif": "koffing.gif",
+        "lifeBars": 5,
+        "attack": "koffing-attack.mp3",
+        "attackType": "smokescreen",
+        "position": { "bottom": 140, "center": true }
+      },
+      {
+        "id": "ekans",
+        "label": "Ekans",
+        "gif": "ekans.gif",
+        "lifeBars": 5,
+        "attack": null,
+        "attackType": "sting",
+        "position": { "bottom": 10, "right": true }
+      }
+    ],
+    "music": "boss-music.mp3"
+  }
+]

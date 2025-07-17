@@ -1,0 +1,38 @@
+.character-card {
+  background: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transform: scale(1);
+}
+
+.character-card:hover {
+  transform: scale(1.03); /* ✅ pulinho pra frente */
+  z-index: 2;
+}
+
+.character-card.selected {
+  background-color: #e6ffe9;
+  border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.4);
+}
+
+.character-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.character-name {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: 4px;
+}

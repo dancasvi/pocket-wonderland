@@ -1,0 +1,158 @@
+.phase-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-layer {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-repeat: repeat-x;
+  background-size: cover;
+  animation: scrollBackground 10s linear infinite;
+  z-index: 1;
+}
+
+@keyframes scrollBackground {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: var(--ground-color, #d2b48c); /* fallback se JSON falhar */
+  z-index: 2;
+}
+
+.player-character {
+  position: absolute;
+  bottom: 100px;
+  left: 20%;
+  height: 120px;
+  z-index: 3;
+  /* transition: transform 0.3s ease-in-out; */
+}
+
+/* HUD */
+.hud-card {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.3); /* quase transparente */
+  color: #000;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 10;
+  min-width: 160px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.hud-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.hud-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-right: 8px;
+}
+
+.hud-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.hud-info {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.hud-level {
+  font-size: 12px;
+  margin-left: 8px;
+  color: #333;
+  font-weight: bold;
+}
+
+.pokeball-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.hud-xp-bar-wrapper {
+  margin-top: 6px;
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.hud-xp-bar {
+  height: 100%;
+  width: 0%;
+  background-color: limegreen;
+  transition: width 0.3s ease;
+}
+
+/* FIM-HUD */
+
+/* MENU DE PAUSE */
+#pause-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.pause-content {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.pause-content button {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* FIM MENU DE PAUSE */
+
+.level-up {
+  animation: pulse 0.8s ease;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 rgba(255, 215, 0, 0); }
+  50% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.849); }
+  100% { box-shadow: 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+
+.enemy {
+  pointer-events: none; /* evita clique sobre inimigos */
+  z-index: 5; /* certifique-se de que aparece na frente do background */
+}
