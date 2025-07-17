@@ -40,7 +40,7 @@
       if (!phase1) throw new Error('Fase 1 não encontrada.');
       currentPhase = 1;
       // Atualiza HUD com nome da fase
-      document.getElementById('hud-phase').textContent = currentPhase.id;
+      document.getElementById('hud-phase').textContent = currentPhase;
 
       // Aplica visual da fase
       const bgColor = phase1['background-img'] || '#a3d9ff';
@@ -66,10 +66,35 @@
       <span id="hud-level" class="hud-level">Lv. 1</span>
     </div>
     <div class="hud-life" id="hud-life">
-      <span class="life-dot"></span>
-      <span class="life-dot"></span>
-      <span class="life-dot"></span>
+      <span class="life-heart">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="red" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                  2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                  C13.09 3.81 14.76 3 16.5 3
+                  19.58 3 22 5.42 22 8.5
+                  c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </span>
+      <span class="life-heart">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="red" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                  2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                  C13.09 3.81 14.76 3 16.5 3
+                  19.58 3 22 5.42 22 8.5
+                  c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </span>
+      <span class="life-heart">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="red" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                  2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                  C13.09 3.81 14.76 3 16.5 3
+                  19.58 3 22 5.42 22 8.5
+                  c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </span>
     </div>
+
     <div class="hud-info">
       <div>Fase: <span id="hud-phase">1</span></div>
       <div>Pontos: <span id="hud-points">0</span></div>

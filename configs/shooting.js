@@ -57,6 +57,7 @@
   // Toca som
   if (attackSound) {
     attackSound.currentTime = 0;
+    attackSound.volume = 0.2;
     attackSound.play().catch(err => console.warn('Som bloqueado:', err));
   }
 

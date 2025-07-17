@@ -156,3 +156,9 @@
   pointer-events: none; /* evita clique sobre inimigos */
   z-index: 5; /* certifique-se de que aparece na frente do background */
 }
+
+.life-heart {
+  display: inline-block;
+  margin: 0 2px;
+  vertical-align: middle;
+}

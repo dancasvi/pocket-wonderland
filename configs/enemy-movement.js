@@ -15,7 +15,7 @@
         enemy.style.left = `${window.innerWidth + 50}px`;
 
         const player = document.getElementById('player-character');
-        const playerBottom = parseFloat(player.style.bottom) || 100;
+        const playerBottom = groundLevel || 100;
         enemy.style.bottom = `${playerBottom}px`;
 
         enemy.style.width = '80px';
