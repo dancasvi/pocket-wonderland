@@ -1,0 +1,83 @@
+Map 1 - A Great Adventure Begins:
+- Common: Caterpie, Weedle, Pidgey;
+- Boss Battle: Koffing, Ekans.
+- Boss Details:
+	- Pikachu não pode mais se mover, somente pular;
+	- Koffing fica parado no meio da tela na altura do pulo do pikachu e a cada 5 segundos ele torna a tela cinza (smokescreen);
+	- Ekans fica no canto direito da tela disparando tracinhos roxos (poison sting);
+	- Para derrotar Koffing, deve acertá-lo cinco vezes;
+	- Para derrotar Ekans, deve derrotar Koffing primeiro e depois acertá-la cinco vezes.
+
+Map 2 - Flying Troublemakers:
+- Common: Spearow, Kakuna, Metapod;
+- Boss Battle: Spearow, Fearow;
+- Boss Details:
+	- A cada 5 segundos, spawna um Spearow correndo na direção do Pikachu;
+	- Fearow fica de cima se movendo no topo superior, na horizontal, jogando "rajadas" de vento;
+	- A cada 5 Spearow derrotados, Fearow vai para o canto direito por 10 segundos e continua com as "rajadas" e pode ser acertado;
+	- Deve acertar Fearow 10 vezes.
+
+Map 3 - A Pleasant Walk in the Rock Tunnel:
+- Common: Zubat, Clefairy, Paras;
+- Boss Battle: Zubat.
+- Boss Details:
+	- Várias hordas de Zubats spawnam de tempos em tempos, cada horda tem 10 zubats (Zubat anda rodopiando);
+	- Deve sobreviver 5 hordas.
+
+
+
+
+
+Adicionar ginasios ou não?
+1º Badge
+Boulder Badge - Pewter City Gym - Brock
+Geodude - Fica parado no centro e arremessa pequenas pedras (Rock Throw) a cada 5 segundos;
+Onix - Fica parado na direita e arremessa pedras mais rápidas e maiores (Rock Tomb) a cada 7 segundos.
+Pode derrotar o Onix primeiro se quiser.
+
+2º Badge
+Cascate Badge - Cerulean City Gym - Misty
+Staryu - Fica perseguindo o personagem com Rapid Spin;
+Starmie - Fica no canto direito, usando Water Pulse a cada 10 segundos (se atingir, inverte controles por 2 segundos), após derrotar Staryu, dispara a cada 5 segundos.
+Pode derrotar a Starmie primeiro se quiser.
+
+3º Badge
+Thunder Badge - Vermilion City Gym - Lt. Surge
+Electrode - Fica perseguindo o personagem com Rollout e disparando Spark a cada X segundos;
+Magneton - Fica no centro, disparando Super Sonic a cada 10 segundos;
+Raichu - Fica parado no canto direito, disparando Shock Wave a cada 10 segundos, após derrotar Magneton, dispara a cada 5 segundos.
+Não pode derrotar Raichu primeiro.
+
+4º Badge
+Rainbow Badge - Celadon City Gym - Erika
+Tangela - Fica parada no canto esquerdo da tela, a cada 10 segundos puxa o personagem usando 'Vine Grip' para o canto esquerdo (não causa dano);
+Gloom - Fica perseguindo o personagem e soltando 'Stun Spore', que trava o personagem por 1 segundo;
+Vileplume - Fica no canto direito da tela, a caa 10 segundos dispara 'Solar Beam'.
+Tangela deve ser a última a ser derrotada.
+
+5º Badge
+Soul Badge - Fuchsia City Gym - Koga
+Weezing - Fica parado no meio da tela disparando 'Smokescreen' a cada 5 segundos;
+Muk - Fica no canto esquerdo da tela disparando 'Sludge Wave', uma onda de veneno que da dano e deixa lento;
+Golbat - Fica perseguindo o personagem, usando 'Bite'.
+Sem ordem para derrotar.
+
+6º Badge
+Marsh Badge - Saffron City Gym - Sabrina
+Kadabra - Fica teleportando e usando 'Psychic' em volta de si. A cada 10 segundos, vai para um dos cantos e dispara 'Psybeam'.
+
+7º Badge
+Volcano Badge - Cinnabar City Gym - Blaine
+Ninetales - Fica no canto esquerdo da tela, disparando 'Fire Blast' a cada 10 segundos;
+Arcanine - Fica no canto direito da tela, disparando 'Fire Blast' a cada 10 segundos;
+Magmar - Fica no centro da tela disparando 'Magma Storm' a cada 20 segundos (magma storm vai ser uma explosão seguida de disparos para todos os lados).
+Magmar deve ser o último a ser derrotado.
+
+8º Badge
+Earth Badge - Viridian City Gym - Giovanni
+1st Stage
+Rhydon - Fica no centro da tela, a cada 30 segundos usa 'Stealth Rocks', que lança 3 pedras que ficam no chão e causam dano caso o personagem pise (somem em 10 segundos);
+Nidoking - Fica no canto direito, a cada 10 segundos corre para o canto esquerdo, depois de 10 segundos, volta para o canto direito;
+
+2nd Stage
+Armored Mewtwo - Fica se movendo pela tela usando 'Psy Pulse' a cada 5 segundos. A cada 30 segundos, vai para o centro da tela e usa 'Psystrike'.

@@ -39,6 +39,8 @@
       const phase1 = phases.find(p => p.id === 1);
       if (!phase1) throw new Error('Fase 1 não encontrada.');
       currentPhase = 1;
+      localStorage.setItem('currentPhase', currentPhase);
+
       // Atualiza HUD com nome da fase
       document.getElementById('hud-phase').textContent = currentPhase;
 
@@ -128,6 +130,14 @@
       if (!window.isPaused) {
         window.points++;
         updatePointsHUD();
+
+        // if (typeof window.points === 'number' && window.points >= 10 && !window.bossStarted) {
+        //   window.gameSound.pause();
+        //   gameSound.currentTime = 0;
+        //   window.bossStarted = true;
+        //   startBossPhase();
+        // }
+
       }
     }, 1000);
   }
@@ -138,117 +148,134 @@
     window.pointInterval = null;
   }
 
-  
-
-
-
   let xp = 0;
-let level = 1;
-let pokeballs = 0;
+  let level = 1;
+  let pokeballs = 0;
 
-function addXP(amount) {
-  xp += amount;
-  const bar = document.getElementById('hud-xp-bar');
-  const levelEl = document.getElementById('hud-level');
+  function addXP(amount) {
+    xp += amount;
+    const bar = document.getElementById('hud-xp-bar');
+    const levelEl = document.getElementById('hud-level');
 
-  let maxXP = 100 + (level - 1) * 30;
-  let percent = Math.min((xp / maxXP) * 100, 100);
-  bar.style.width = percent + '%';
+    let maxXP = 100 + (level - 1) * 30;
+    let percent = Math.min((xp / maxXP) * 100, 100);
+    bar.style.width = percent + '%';
 
-  // Level up!
-  if (xp >= maxXP) {
-    xp = xp - maxXP;
-    level++;
-    levelEl.textContent = `Lv. ${level}`;
+    // Level up!
+    if (xp >= maxXP) {
+      xp = xp - maxXP;
+      level++;
+      levelEl.textContent = `Lv. ${level}`;
 
-    levelUpAnimation(); // quando subir de nível
+      levelUpAnimation(); // quando subir de nível
+    }
   }
-}
 
-// Pressionar T para testar ganho de XP
-window.addEventListener('keydown', e => {
-  if (e.code === 'KeyT') {
-	addXP(50); // test XP gain
+  // Pressionar T para testar ganho de XP
+  window.addEventListener('keydown', e => {
+    if (e.code === 'KeyT') {
+    addXP(50); // test XP gain
+    }
+  });
+
+  function addPokeball(count = 1) {
+    pokeballs += count;
+    const el = document.getElementById('hud-pokeballs');
+    if (el) el.textContent = pokeballs;
   }
-});
 
-function addPokeball(count = 1) {
-  pokeballs += count;
-  const el = document.getElementById('hud-pokeballs');
-  if (el) el.textContent = pokeballs;
-}
+  let isPaused = false;
+  let pauseMenu = null;
 
-let isPaused = false;
-let pauseMenu = null;
+  function saveGame() {
+    const selected = JSON.parse(localStorage.getItem('selectedCharacter') || '{}');
 
-function saveGame() {
-  const selected = JSON.parse(localStorage.getItem('selectedCharacter') || '{}');
+    const data = {
+      personagem: {
+        id: selected.id || null
+      },
+      level,
+      pontos: points,
+      fase: 1
+    };
 
-  const data = {
-    personagem: {
-      id: selected.id || null
-    },
-    level,
-    pontos: points,
-    fase: 1
-  };
+    const content = JSON.stringify(data, null, 2);
+    const blob = new Blob([content], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.download = `save-data-${Date.now()}.txt`;
+    link.href = URL.createObjectURL(blob);
+    link.click();
+  }
 
-  const content = JSON.stringify(data, null, 2);
-  const blob = new Blob([content], { type: 'text/plain' });
-  const link = document.createElement('a');
-  link.download = `save-data-${Date.now()}.txt`;
-  link.href = URL.createObjectURL(blob);
-  link.click();
-}
+  function levelUpAnimation() {
+    const hud = document.getElementById('hud');
+    hud.classList.add('level-up');
 
-function levelUpAnimation() {
-  const hud = document.getElementById('hud');
-  hud.classList.add('level-up');
+    let levelUpSound = new Audio(`assets/sounds/hud/level-up.mp3`);
+    levelUpSound.currentTime = 0;
+    levelUpSound.volume = 0.2;
+    levelUpSound.play().catch(err => console.warn('Som bloqueado:', err));
 
-  let levelUpSound = new Audio(`assets/sounds/hud/level-up.mp3`);
-  levelUpSound.currentTime = 0;
-  levelUpSound.volume = 0.2;
-  levelUpSound.play().catch(err => console.warn('Som bloqueado:', err));
+    setTimeout(() => {
+      hud.classList.remove('level-up');
+    }, 800);
+  }
 
-  setTimeout(() => {
-    hud.classList.remove('level-up');
-  }, 800);
-}
+  function startEnemySpawn(enemiesIdList) {
+    fetch('json-db/enemies.json')
+      .then(res => res.json())
+      .then(allEnemies => {
+        // 1. Filtra os inimigos permitidos nesta fase
+        const validEnemies = allEnemies.filter(e => enemiesIdList.includes(e.idEnemy));
 
-function startEnemySpawn(enemiesIdList) {
-  fetch('json-db/enemies.json')
-    .then(res => res.json())
-    .then(allEnemies => {
-      // 1. Filtra os inimigos permitidos nesta fase
-      const validEnemies = allEnemies.filter(e => enemiesIdList.includes(e.idEnemy));
+        if (validEnemies.length === 0) return;
 
-      if (validEnemies.length === 0) return;
+        // 2. Calcula média de spawnTime
+        const totalSpawnTime = validEnemies.reduce((sum, enemy) => sum + (enemy.spawnTime || 3), 0);
+        const avgSpawnTime = totalSpawnTime / validEnemies.length;
 
-      // 2. Calcula média de spawnTime
-      const totalSpawnTime = validEnemies.reduce((sum, enemy) => sum + (enemy.spawnTime || 3), 0);
-      const avgSpawnTime = totalSpawnTime / validEnemies.length;
+        // 3. Converte para milissegundos
+        const intervalTime = avgSpawnTime * 1000;
 
-      // 3. Converte para milissegundos
-      const intervalTime = avgSpawnTime * 1000;
-
-      // 4. Cria spawn com esse intervalo médio
-      setInterval(() => {
-        if (!window.isPaused && typeof window.spawnEnemy === 'function') {
-          const enemy = validEnemies[Math.floor(Math.random() * validEnemies.length)];
-          if (enemy) {
-            window.spawnEnemy(enemy.name.toLowerCase()); // ou use enemy.imgFile, etc
+        // 4. Cria spawn com esse intervalo médio
+        setInterval(() => {
+          if (!window.isPaused && typeof window.spawnEnemy === 'function') {
+            const enemy = validEnemies[Math.floor(Math.random() * validEnemies.length)];
+            if (enemy) {
+              window.spawnEnemy(enemy.name.toLowerCase()); // ou use enemy.imgFile, etc
+            }
           }
-        }
-      }, intervalTime);
-    });
-}
+        }, intervalTime);
+      });
+  }
 
-function updatePointsHUD() {
-  const el = document.getElementById('hud-points');
-  if (el) el.textContent = window.points || 0;
-}
+  function updatePointsHUD() {
+    const el = document.getElementById('hud-points');
+    if (el) el.textContent = window.points || 0;
+  }
 
+  function startBossPhase() {
+    fetch('json-db/bosses.json')
+      .then(res => res.json())
+      .then(data => {
+        const currentPhase = parseInt(localStorage.getItem('currentPhase') || '1');
+        const bossData = data.find(b => b.id === currentPhase);
+    
+        const bossMusic = new Audio(`assets/enemies/boss/${currentPhase}/boss-music.mp3`);
+        bossMusic.loop = true;
+        bossMusic.volume = 0.4;
+        bossMusic.play().catch(() => {});
+        window.currentBossMusic = bossMusic;
 
+        let msg = `${bossData.name} is attacking!`;
+        
+        // Inserir no corpo do modal
+        $('#modalBody').text(msg);
+
+        // Exibir o modal
+        $('#bossAtackModal').modal('show');
+      });
+  }
 
 
 

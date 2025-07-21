@@ -1,0 +1,47 @@
+Modo História
+- Deve ir derrotando os mapas e bosses.
+
+Map 1 - A Great Adventure Begins
+Map 2 - Flying Troublemakers
+Map 3 - A Pleasant Walk in the Rock Tunnel
+Map 4 - An Electric Encounter at Power Plant
+
+Modo Ginásios
+- Deve ir derrotando os mapas e bosses.
+
+1st Badge - Boulder Badge
+2nd Badge - Cascate Badge
+3rd Badge - Thunder Badge
+4th Badge - Rainbow Badge
+5th Badge - Soul Badge
+6th Badge - Marsh Badge
+7th Badge - Volcano Badge
+8th Badge - Earth Badge
+
+Modo Captura
+- Deve derrotar o mapa e boss para liberar personagem.
+- Consigo criar uma Inteligencia para o adversário?
+
+Chikorita - Free
+Pikachu - Free
+Flareon - Free
+Manectric - Free
+Mareep - Free
+Pichu - Free
+Quilava (Handmade) - Free
+Raichu 4-steps - Free
+Rachu 2-steps - Free
+Umbreon - Free
+Vaporeon - Free
+Blaziken - Batalha
+Jolteon - Batalha
+Rockruff - Batalha
+Quagsire - Batalha
+Scorbunny - Cash
+Lucario Pixel - Cash
+Shiny Sylveon - Cash
+Charizard - Cash
+Mr Mime - Cash
+Arcanine (Handmade) - Cash
+Mew - Cash
+Shiny Eeevee - Cash

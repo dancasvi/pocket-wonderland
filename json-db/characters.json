@@ -68,5 +68,15 @@
         "powerColor": "#FF32EB",
         "ingameIconExtension": "jpeg",
         "type": "fairy"
+    },
+    {
+        "id": 8,
+        "name": "Charizard",
+        "img": "charizard.gif",
+        "turnedTo": "left",
+        "chooseIconExtension": "png",
+        "powerColor": "#FF0000",
+        "ingameIconExtension": "jpeg",
+        "type": "fire"
     }
 ]
