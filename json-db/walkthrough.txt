@@ -20,7 +20,7 @@ Modo Ginásios
 
 Modo Captura
 - Deve derrotar o mapa e boss para liberar personagem.
-- Consigo criar uma Inteligencia para o adversário?
+- Consigo criar uma Inteligencia para o adversário? Pesquisei rapidamente no chat gpt, da sim.
 
 Chikorita - Free
 Pikachu - Free

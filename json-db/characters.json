@@ -78,5 +78,25 @@
         "powerColor": "#FF0000",
         "ingameIconExtension": "jpeg",
         "type": "fire"
+    },
+    {
+        "id": 9,
+        "name": "Scorbunny",
+        "img": "scorbunny.gif",
+        "turnedTo": "left",
+        "chooseIconExtension": "png",
+        "powerColor": "#FF0000",
+        "ingameIconExtension": "jpeg",
+        "type": "fire"
+    },
+    {
+        "id": 10,
+        "name": "Manectric",
+        "img": "manectric.gif",
+        "turnedTo": "left",
+        "chooseIconExtension": "png",
+        "powerColor": "#FFEF00",
+        "ingameIconExtension": "png",
+        "type": "electric"
     }
 ]
