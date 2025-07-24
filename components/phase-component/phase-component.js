@@ -131,12 +131,12 @@
         window.points++;
         updatePointsHUD();
 
-        // if (typeof window.points === 'number' && window.points >= 10 && !window.bossStarted) {
-        //   window.gameSound.pause();
-        //   gameSound.currentTime = 0;
-        //   window.bossStarted = true;
-        //   startBossPhase();
-        // }
+        if (typeof window.points === 'number' && window.points >= 50 && !window.bossStarted) {
+          window.gameSound.currentTime = 0;
+          window.gameSound.pause();
+          window.bossStarted = true;
+          startBossPhase();
+        }
 
       }
     }, 1000);
@@ -239,7 +239,7 @@
 
         // 4. Cria spawn com esse intervalo médio
         setInterval(() => {
-          if (!window.isPaused && typeof window.spawnEnemy === 'function') {
+          if (!window.isPaused && typeof window.spawnEnemy === 'function' && !window.bossStarted) {
             const enemy = validEnemies[Math.floor(Math.random() * validEnemies.length)];
             if (enemy) {
               window.spawnEnemy(enemy.name.toLowerCase()); // ou use enemy.imgFile, etc
@@ -274,10 +274,30 @@
 
         // Exibir o modal
         $('#bossAtackModal').modal('show');
+
+        spawnaBosses(bossData.bosses, currentPhase);
       });
   }
 
+  function spawnaBosses(bossData, currentPhase) {
+    bossData.forEach((boss) => {
+      const gifPath = `assets/enemies/boss/${currentPhase}/${boss.gif.toLowerCase()}`;
 
+      const bossDiv = document.createElement('div');
+      bossDiv.id = `boss-container-${boss.id}`;
+      bossDiv.classList.add('boss-container', `boss-${boss.id}`);
+
+      bossDiv.style.width = boss.width || '200px';
+      bossDiv.style.height = boss.height || '200px';
+      bossDiv.style.position = 'absolute';
+      bossDiv.style.left = boss.left || '50%';
+      bossDiv.style.bottom = boss.bottom || '80px';
+
+      bossDiv.innerHTML = `<img src="${gifPath}" alt="${boss.label}" class="boss-img" />`;
+
+      document.querySelector('.phase-wrapper').appendChild(bossDiv);
+    });
+  }
 
 
 

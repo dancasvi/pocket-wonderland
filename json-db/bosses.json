@@ -10,7 +10,10 @@
         "lifeBars": 5,
         "attack": "koffing-attack.mp3",
         "attackType": "smokescreen",
-        "position": { "bottom": 140, "center": true }
+        "width": "120px",
+        "height": "120px",
+        "left": "50%",
+        "bottom": "240px"
       },
       {
         "id": "ekans",
@@ -19,7 +22,10 @@
         "lifeBars": 5,
         "attack": null,
         "attackType": "sting",
-        "position": { "bottom": 10, "right": true }
+        "width": "140px",
+        "height": "140px",
+        "left": "85%",
+        "bottom": "80px"
       }
     ],
     "music": "boss-music.mp3"

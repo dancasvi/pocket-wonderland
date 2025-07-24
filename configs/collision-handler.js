@@ -102,7 +102,7 @@
             enemy.onload = () => {
                 setTimeout(() => {
                     enemy.remove();
-                }, 200);
+                }, 150);
             };
 
             enemy.src = faintGif; // Só depois de definir o .onload
