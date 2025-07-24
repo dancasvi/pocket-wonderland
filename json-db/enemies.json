@@ -8,7 +8,7 @@
         "attackSoundFile": "atk-caterpie.mp3",
         "attackColor": "#00FF00",
         "attackTypes": [{"style":"walk", "cd":0}],
-        "spawnTime": 3,
+        "spawnTime": 2,
         "life": 1,
         "exp": 10,
         "speed": 7
@@ -22,7 +22,7 @@
         "attackSoundFile": "atk-weedle.mp3",
         "attackColor": "#F7B874",
         "attackTypes": [{"style":"walk", "cd":0}],
-        "spawnTime": 3,
+        "spawnTime": 2,
         "life": 1,
         "exp": 10,
         "speed": 7
