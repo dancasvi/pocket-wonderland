@@ -53,7 +53,6 @@
             window.stopPointCounter();
           }
 
-
           setTimeout(() => {
             loadComponent('components/menu-component/menu-component.html');
           }, 3000);
@@ -75,7 +74,7 @@
         // Remove imunidade após 3 segundos
         setTimeout(() => {
           player.dataset.immune = 'false';
-        }, 3000);
+        }, 2500);
       }
     });
     // FIM TOQUE
@@ -162,7 +161,11 @@
     });
   }
 
-  function showGameOverMessage() {    
+  function showGameOverMessage() {
+    // para a musica padrão
+    window.gameSound.currentTime = 0;
+    window.gameSound.pause();
+
     loseSound.volume = 0.9;
     loseSound.play().catch(err => console.warn('Som bloqueado:', err));
 
