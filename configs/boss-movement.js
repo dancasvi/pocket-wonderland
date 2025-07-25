@@ -1,5 +1,5 @@
 (() => {
-  window.moveBoss = function (bossEl, attackType) {
+  window.moveBoss = function (bossEl, attackType, currentPhase, bossName) {
     if (!bossEl || !attackType) return;
 
     if (attackType === 'smokescreen') {
@@ -16,6 +16,23 @@
         requestAnimationFrame(move);
       }
       move();
+      setInterval(() => {
+        const smoke = $('<div></div>').css({
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(100,100,100,0.9)',
+          top: '0',
+          left: '0',
+          zIndex: '5',
+          display: 'none'
+        });
+        $('body').append(smoke);
+        smoke.fadeIn(300).delay(700).fadeOut(500);
+
+        const soundPath = `assets/enemies/boss/${currentPhase}/${bossName}-attack.mp3`;
+        new Audio(`${soundPath}`).play();
+      }, 5000);
     }
 
     if (attackType === 'sting') {
@@ -25,9 +42,9 @@
         bullet.className = 'enemy-bullet';
         bullet.style.position = 'absolute';
         bullet.style.left = `${bossEl.offsetLeft}px`;
-        bullet.style.bottom = `${parseFloat(bossEl.style.bottom || '100') + 20}px`;
-        bullet.style.width = '10px';
-        bullet.style.height = '10px';
+        bullet.style.bottom = `${parseFloat(bossEl.style.bottom || '100') + 40}px`;
+        bullet.style.width = '25px';
+        bullet.style.height = '6px';
         bullet.style.borderRadius = '50%';
         bullet.style.backgroundColor = 'purple';
         bullet.style.zIndex = '998';

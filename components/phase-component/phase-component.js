@@ -296,6 +296,10 @@
       bossDiv.innerHTML = `<img src="${gifPath}" alt="${boss.label}" class="boss-img" />`;
 
       document.querySelector('.phase-wrapper').appendChild(bossDiv);
+
+      if (typeof window.moveBoss === 'function') {
+        window.moveBoss(bossDiv, boss.attackType, currentPhase, boss.id); // <- Certifique-se que "attackType" existe no JSON
+      }
     });
   }
 
@@ -331,6 +335,12 @@
     collisionScript.defer = true;
     collisionScript.setAttribute('data-dynamic', 'true');
     document.body.appendChild(collisionScript);
+
+    const bossMovementScript = document.createElement('script');
+    bossMovementScript.src = 'configs/boss-movement.js';
+    bossMovementScript.defer = true;
+    bossMovementScript.setAttribute('data-dynamic', 'true');
+    document.body.appendChild(bossMovementScript);
 
     // Torna acessível no escopo global
     window.addXP = addXP;
