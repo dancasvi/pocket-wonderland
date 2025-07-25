@@ -22,6 +22,57 @@ Modo Captura
 - Deve derrotar o mapa e boss para liberar personagem.
 - Consigo criar uma Inteligencia para o adversário? Pesquisei rapidamente no chat gpt, da sim.
 
+
+Modo Villains
+- Modo batalha de ir derrotando as equipes vilãs das regiões.
+Team Rocket - Kanto
+1º - Derrotar Jessie e James -> Koffing, Ekans;
+2º - Derrotar Jessie e James -> Weezing, Arbok, Wobbuffet (?);
+
+Team Rocket - Johto
+1º - Derrotar Giovanni -> Rhydon, Nidoking
+2º - Derrotar Giovanni -> Armored Mewtwo
+
+Team Aqua and Team Magma - Hoenn
+1º - Derrotar Archie e Maxie -> Sharpedo e Camerupt
+2º - Derrotar Archie e Maxie -> Kyogre e Groudon
+
+Team Galactic - Sinnoh
+1º - Derrotar Mars, Jupiter and Saturn -> Purugly, Skuntank, Toxicroak
+2º - Derrotar Cyrus -> Honchkrow
+3º - Derrotar Cyrus -> Palkia ou Dialga ou Giratina
+
+
+Modo Legendary Battle
+Kanto Legends
+1st Stage - Moltres, Zapdos, Articuno
+2nd Stage - Mew, Mewtwo
+
+Johto Legends
+1st Stage - Entei, Raikou, Suicune
+2nd Stage - Lugia, Ho-oh
+3rd Stage - Celebi
+
+Hoenn Legends
+1st Stage - Kyogre, Groudon
+2nd Stage - Rayquaza
+3rd Stage - Regice, Regirock, Registeel
+4th Stage - Latios, Latias
+5th Stage - Deoxys (All Forms)
+6th Stage - Jirachi
+
+Sinnoh Legends
+Dialga, Palkia
+Giratina
+Arceus
+Heatran
+Mesprit, Uxie, Azelf
+Regigigas
+Cresselia, Darkrai
+Manaphy, Phione
+Shaymin
+
+
 Chikorita - Free
 Pikachu - Free
 Flareon - Free
